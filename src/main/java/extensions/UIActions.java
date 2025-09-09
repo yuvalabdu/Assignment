@@ -1,6 +1,5 @@
 package extensions;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import utilities.CommonOps;
@@ -13,13 +12,11 @@ public class UIActions extends CommonOps {
     public static void click(WebElement elem){
         elem.click();
     }
-    @Step("Update Text Element")
     public static void updateText(WebElement elem, String text){
         wait.until(ExpectedConditions.visibilityOf(elem));
         elem.sendKeys(text);
     }
 
-    @Step("Get text from element")
     public static String getElementText(WebElement elem) {
         wait.until(ExpectedConditions.visibilityOf(elem));
         String text = elem.getText();
@@ -27,7 +24,6 @@ public class UIActions extends CommonOps {
         return text;
     }
 
-    @Step("Get text from list of elements")
     public static List<String> getElementsText(List<WebElement> elements) {
         wait.until(ExpectedConditions.visibilityOfAllElements(elements));
 
